@@ -77,7 +77,7 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/login', passport.authenticate('oauth2'));
-app.get('/auth', passport.authenticate('0auth2'), function(req, res) {
+app.get('/auth', passport.authenticate('oauth2'), function(req, res) {
     // Beware XSRF...
     res.cookie('accessToken', req.user);
     res.redirect('/');
