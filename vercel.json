@@ -5,7 +5,7 @@
     ],
     "functions": {
         "index.js": {
-          "includeFiles": "greet.cjs"
+          "includeFiles": "oneaccess.crt"
         }
       }
   }
