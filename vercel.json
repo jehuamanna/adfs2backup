@@ -1,9 +1,6 @@
 {
     "version": 2,
-    
-    "functions": {
-        "index.js": {
-          "includeFiles": "oneaccess.crt"
-        }
-      }
+    "builds": [
+        { "src": "*.js", "use": "@vercel/node" }
+    ]
   }
