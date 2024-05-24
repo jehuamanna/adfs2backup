@@ -7,6 +7,7 @@ var app = require('express')(),
     cookieParser = require('cookie-parser'),
     jwt = require('jsonwebtoken'),
     passport = require('passport'),
+    bodyParser = require('body-parser'),
     OAuth2Strategy = require('passport-oauth').OAuth2Strategy,
     fs = require('fs');
 
@@ -69,7 +70,7 @@ passport.deserializeUser(function(user, done) {
 // Configure express app
 app.use(cookieParser());
 app.use(passport.initialize());
-
+app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/login', passport.authenticate('oauth2'));
 app.get('/callback', passport.authenticate('auth2'), function(req, res) {
     // Beware XSRF...
@@ -89,6 +90,6 @@ app.get('/logout', function (req, res) {
     res.redirect('/');
 });
 
-//app.listen(3000);
-app.listen(443);
+app.listen(3000);
+//app.listen(443);
 console.log('Express server started on port 3000');
