@@ -2,5 +2,19 @@
     "version": 2,
     "builds": [
         { "src": "*.js", "use": "@vercel/node" }
+    ],
+    "routes" : [
+        {
+            "src": "/login" , "dest": "index.js"
+        },
+        {
+
+            "src": "/auth" , "dest": "index.js"
+        },
+        {
+
+            "src": "/logout" , "dest": "index.js"
+        }
+
     ]
   }
