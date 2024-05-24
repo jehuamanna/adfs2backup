@@ -1,15 +1,11 @@
 {
     "version": 2,
     "builds": [
-      {
-        "src": ["index.js", "oneaccess.crt"],
-        "use": "@now/node"
-      }
+        { "src": "*.js", "use": "@vercel/node" }
     ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "index.js"
+    "functions": {
+        "index.js": {
+          "includeFiles": "greet.cjs"
+        }
       }
-    ]
   }
