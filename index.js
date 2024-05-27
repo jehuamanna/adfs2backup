@@ -41,8 +41,8 @@ var strategy = new OAuth2Strategy({
         tokenURL: 'https://oneaccess.dtdc.com/adfs/oauth2/token',
         clientID: '7ca0da5c-7bef-4fb0-b37d-7e876ced4597', // This is just a UID I generated and registered
         clientSecret: 'ehaWTVjh__PyE3nyARLrNS3UnbFimPks2qU-_yY8', // This is ignored but required by the OAuth2Strategy
-        //callbackURL: 'http://localhost:3000/callback'
-        callbackURL: 'https://frplus-dev.dtdc.com/auth'
+        callbackURL: 'http://localhost:3000/callback'
+        // callbackURL: 'https://frplus-dev.dtdc.com/auth'
     },
     function(accessToken, refreshToken, profile, done) {
         if (refreshToken) {
