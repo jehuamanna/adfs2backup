@@ -81,7 +81,7 @@ app.get('/auth', passport.authenticate('oauth2'), function(req, res) {
     // Beware XSRF...
     res.cookie('accessToken', req.user);
     console.log(req.user)
-    res.redirect('/dashbaord');
+    res.redirect('/dashboard');
 });
 
 app.get("/dashboard", function(req, res){
