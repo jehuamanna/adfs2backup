@@ -61,7 +61,8 @@ strategy.authorizationParams = function(options) {
     
   };
 };
-strategy.userProfile = function(accessToken, done) {
+strategy.userProfile = function(accessToken, refreshToken, profile, done) {
+    console.log(accessToken, refreshToken, profile);
     done(null, accessToken);
 };
 passport.use('oauth2', strategy);
@@ -80,7 +81,6 @@ app.get('/login', passport.authenticate('oauth2'));
 app.get('/auth', passport.authenticate('oauth2'), function(req, res) {
     // Beware XSRF...
     res.cookie('accessToken', req.user);
-    console.log(req.user)
     res.redirect(`/dashboard?token=${req.user}`);
 });
 
