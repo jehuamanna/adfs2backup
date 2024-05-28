@@ -45,6 +45,9 @@ var strategy = new OAuth2Strategy({
         // callbackURL: 'https://frplus-dev.dtdc.com/auth'
     },
     function(accessToken, refreshToken, profile, done) {
+        console.log("accessToken", accessToken);
+        console.log("refreshToken", refreshToken);
+        console.log("profile", profile)
         if (refreshToken) {
             console.log('Received but ignoring refreshToken (truncated)', refreshToken.substr(0, 25));
         } else {
@@ -61,8 +64,7 @@ strategy.authorizationParams = function(options) {
     
   };
 };
-strategy.userProfile = function(accessToken, refreshToken, profile, done) {
-    console.log(accessToken, refreshToken, profile);
+strategy.userProfile = function(accessToken, done) {
     done(null, accessToken);
 };
 passport.use('oauth2', strategy);
@@ -81,6 +83,7 @@ app.get('/login', passport.authenticate('oauth2'));
 app.get('/auth', passport.authenticate('oauth2'), function(req, res) {
     // Beware XSRF...
     res.cookie('accessToken', req.user);
+    console.log(req.user)
     res.redirect(`/dashboard?token=${req.user}`);
 });
 
