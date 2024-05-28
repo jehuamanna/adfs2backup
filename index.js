@@ -14,7 +14,18 @@ var app = require('express')(),
     passport = require('passport'),
     bodyParser = require('body-parser'),
     OAuth2Strategy = require('passport-oauth').OAuth2Strategy,
-    fs = require('fs');
+    fs = require('fs'),
+    session = require('express-session')
+
+
+    app.set('trust proxy', 1) // trust first proxy
+    app.use(session({
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure: true }
+    }))
+
 
 var https = require('https');
 console.warn('Not verifying HTTPS certificates');
@@ -41,8 +52,13 @@ var strategy = new OAuth2Strategy({
         tokenURL: 'https://oneaccess.dtdc.com/adfs/oauth2/token',
         clientID: '7ca0da5c-7bef-4fb0-b37d-7e876ced4597', // This is just a UID I generated and registered
         clientSecret: 'ehaWTVjh__PyE3nyARLrNS3UnbFimPks2qU-_yY8', // This is ignored but required by the OAuth2Strategy
-        callbackURL: 'https://adfs2.vercel.app/auth'
+        callbackURL: 'https://adfs2.vercel.app/auth',
+        pkce: true,
+        state: true,
+        store: true,
+
         // callbackURL: 'https://frplus-dev.dtdc.com/auth'
+        
     },
     function(accessToken, refreshToken, profile, done) {
         console.log("accessToken", accessToken);
