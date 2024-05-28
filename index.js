@@ -46,14 +46,14 @@ var strategy = new OAuth2Strategy({
     },
     function(accessToken, refreshToken, profile, done) {
         console.log("accessToken", accessToken);
-        console.log("refreshToken", refreshToken);
-        console.log("profile", profile)
+        // console.log("refreshToken", refreshToken);
+        // console.log("profile", profile)
         if (refreshToken) {
-            console.log('Received but ignoring refreshToken (truncated)', refreshToken.substr(0, 25));
+            // console.log('Received but ignoring refreshToken (truncated)', refreshToken.substr(0, 25));
         } else {
             console.log('No refreshToken received');
         }
-        done(null, profile);
+        done(null, accessToken);
     });
 strategy.authorizationParams = function(options) {
   return {
