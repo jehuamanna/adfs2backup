@@ -109,7 +109,8 @@ app.get("/dashboard", function(req, res){
         <script>
         function sendTokenToParent(token) {
             /* window.opener.postMessage(token, window.location.origin); */
-            window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/");
+            /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
+            window.opener.postMessage(token, "http:localhost:8080/");
             window.close();
             console.log(token);
         }
