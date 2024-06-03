@@ -107,6 +107,10 @@ app.get("/dashboard", function(req, res){
     const html_ = `
         <div id="output"> </div>
         <script>
+        function sendTokenToParent(token) {
+            window.opener.postMessage(token, window.location.origin);
+        }
+
         const url = new URL(window.location.href);
     
         // Get the query parameters
@@ -114,6 +118,9 @@ app.get("/dashboard", function(req, res){
     
         // Get specific parameters
         const param = params.get('token');
+    
+        // Send the token to the parent window
+        sendTokenToParent(param);
     
         // Output the parameters
         document.getElementById('output').innerHTML = \`
