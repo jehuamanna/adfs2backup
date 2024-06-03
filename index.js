@@ -109,7 +109,7 @@ app.get("/dashboard", function(req, res){
         <script>
         function sendTokenToParent(token) {
             /* window.opener.postMessage(token, window.location.origin); */
-            window.opener.postMessage(token, "http://localhost:8080");
+            window.opener.postMessage(token, "https://enterprise-india.flutterflow.io/debug/IjU4P4rwifx8XLylzm5Q");
             window.close();
             console.log(token);
         }
