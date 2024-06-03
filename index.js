@@ -108,6 +108,7 @@ app.get("/dashboard", function(req, res){
         <div id="output"> </div>
         <script>
         function sendTokenToParent(token) {
+            console.log(token);
             window.opener.postMessage(token, window.location.origin);
         }
 
