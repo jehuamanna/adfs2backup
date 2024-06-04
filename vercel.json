@@ -18,6 +18,10 @@
         {
 
             "src": "/dashboard" , "dest": "index.js"
+        },
+        {
+
+            "src": "/content/translations/:lang" , "dest": "index.js"
         }
 
     ]
