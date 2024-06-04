@@ -21,7 +21,11 @@
         },
         {
 
-            "src": "/content/translations/:lang" , "dest": "index.js"
+            "src": "/content/translations/(?<lang>[^/]*)" , "dest": "index.js?lang=$lang"
+        },
+        {
+
+            "src": "/content/translations" , "dest": "index.js"
         }
 
     ]
