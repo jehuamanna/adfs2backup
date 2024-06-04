@@ -14,6 +14,7 @@ const translations = {
 
 var app = require('express')(),
     cookieParser = require('cookie-parser'),
+    cors = require('cors'),
     jwt = require('jsonwebtoken'),
     passport = require('passport'),
     bodyParser = require('body-parser'),
@@ -30,6 +31,7 @@ var app = require('express')(),
       cookie: { secure: true }
     }))
 
+    app.use(cors())
 
 var https = require('https');
 console.warn('Not verifying HTTPS certificates');
