@@ -7,7 +7,7 @@ const crtbase64 = `MIIC4DCCAcigAwIBAgIQOatG6IEZeqhBINbcxHNVJTANBgkqhkiG9w0BAQsFA
 
 const translations = {
     en: {"welcome_message": "Hello World"},
-    hi: {"welcome_message": "हैलो वर्ल्ड"},
+    hi: {"welcome_message": "हैलो लोग"},
     kn: {"welcome_message": "ಹಲೋ ವರ್ಲ್ಡ್"}
 }
 
