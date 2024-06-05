@@ -6,8 +6,8 @@
 const crtbase64 = `MIIC4DCCAcigAwIBAgIQOatG6IEZeqhBINbcxHNVJTANBgkqhkiG9w0BAQsFADAsMSowKAYDVQQDEyFBREZTIFNpZ25pbmcgLSBvbmVhY2Nlc3MuZHRkYy5jb20wHhcNMjMwNjEzMDcyNjU5WhcNNDgwNjA2MDcyNjU5WjAsMSowKAYDVQQDEyFBREZTIFNpZ25pbmcgLSBvbmVhY2Nlc3MuZHRkYy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCmuyTcvIGnZr59zVtQt856FDaV0Rxgn61s8T4Ya1objqGEv9j3svpPeKbUePJypIdsjfHchJs06wioq3dEjSopVCuVLJrx/6KNfulOfO4bz7TAE1psMGnRMe1+504wKnd+bSRTQnSIW2CsHhBQWcXcNZOlSEtl7JHUa6jGByil7M7JkP3t+SRM7LJqz4vWcTH5b6REaGx06/VnqM/W79qSiSumC/eTSZJ5zoDfDJhaFUv6qr6z/Mx1m9H+aOynHmzXN/DCB441MYLmSVQS+tvq8bbSqikKnnW1J07N14Bo7hSqOIlZDYBjZI/G8+o3QYMjFchTa+yenUNTqA55cN/jAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAI3k76wcLwC9ZRU2O22bYpwgW8tD7VeTBckhmQPyqVryjIXegL8Whwdva4XdZyGFO69cH416pnpe9Ytq1fIeRCbUdUhZ7JGtN1DTyMuOlT4MlTlgDBm9S1w4ywK1CSMkZ14oGF1i5r9lDq65iOPhvFr9IItF2TKMfy4HfijG1YypkoB7WjsOodlvNfXoNSfJYa0XsA+lCtDDO9mtZyzn/cAB0Ph+4yVdIskU4XS46jGpRWlvuMbwebUq5p8vydmSAFZu7QExz3SA/7LZu5E9dwZBHG+Uyt3y3dExR/BCQCgkTOeqd0DKsS7xZNlAhkdNbbtKsZjMLS128YmdoStfSXY=`
 
 const translations = {
-    en: {"welcome_message": "Hello World"},
-    hi: {"welcome_message": "हैलो लोग"},
+    en: {"Hello World": "Hello World"},
+    hi: {"Hello World": "हैलो लोग"},
     kn: {"welcome_message": "ಹಲೋ ವರ್ಲ್ಡ್"}
 }
 
