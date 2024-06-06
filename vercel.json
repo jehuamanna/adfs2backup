@@ -26,6 +26,10 @@
         {
 
             "src": "/content/translations" , "dest": "index.js"
+        },
+        {
+
+            "src": "/version" , "dest": "index.js"
         }
 
     ]
