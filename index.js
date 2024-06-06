@@ -10,7 +10,8 @@ const translations = {
     kn: {"Hello World": "ಹಲೋ ವರ್ಲ್ಡ್", "Home": "ಮನೆ"},
     ta: {"Hello World": "வணக்கம் உலகம்", "Home": "இல்லம்"},
     ma: {"Hello World": "नमस्कार जग", "Home": "मुख्यपृष्ठ"},
-    ml: {"Hello World": "ഹലോ വേൾഡ്", "Home": "വീട്"}
+    ml: {"Hello World": "ഹലോ വേൾഡ്", "Home": "വീട്"},
+    pa: {}
 }
 
 
