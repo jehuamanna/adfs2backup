@@ -176,7 +176,7 @@ app.get('/logout',  function (req, res) {
 app.get("/lang/:lang/version/:versionId", function(req, res) {
     const versionId = req.params.versionId;
     const lang = req.params.lang;
-    const version = translations[lang][versionId]
+    const version = translations?.[lang]?.[versionId] || 0
 
     res.send({version})
 })
