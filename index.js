@@ -6,12 +6,13 @@
 const crtbase64 = `MIIC4DCCAcigAwIBAgIQOatG6IEZeqhBINbcxHNVJTANBgkqhkiG9w0BAQsFADAsMSowKAYDVQQDEyFBREZTIFNpZ25pbmcgLSBvbmVhY2Nlc3MuZHRkYy5jb20wHhcNMjMwNjEzMDcyNjU5WhcNNDgwNjA2MDcyNjU5WjAsMSowKAYDVQQDEyFBREZTIFNpZ25pbmcgLSBvbmVhY2Nlc3MuZHRkYy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCmuyTcvIGnZr59zVtQt856FDaV0Rxgn61s8T4Ya1objqGEv9j3svpPeKbUePJypIdsjfHchJs06wioq3dEjSopVCuVLJrx/6KNfulOfO4bz7TAE1psMGnRMe1+504wKnd+bSRTQnSIW2CsHhBQWcXcNZOlSEtl7JHUa6jGByil7M7JkP3t+SRM7LJqz4vWcTH5b6REaGx06/VnqM/W79qSiSumC/eTSZJ5zoDfDJhaFUv6qr6z/Mx1m9H+aOynHmzXN/DCB441MYLmSVQS+tvq8bbSqikKnnW1J07N14Bo7hSqOIlZDYBjZI/G8+o3QYMjFchTa+yenUNTqA55cN/jAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAI3k76wcLwC9ZRU2O22bYpwgW8tD7VeTBckhmQPyqVryjIXegL8Whwdva4XdZyGFO69cH416pnpe9Ytq1fIeRCbUdUhZ7JGtN1DTyMuOlT4MlTlgDBm9S1w4ywK1CSMkZ14oGF1i5r9lDq65iOPhvFr9IItF2TKMfy4HfijG1YypkoB7WjsOodlvNfXoNSfJYa0XsA+lCtDDO9mtZyzn/cAB0Ph+4yVdIskU4XS46jGpRWlvuMbwebUq5p8vydmSAFZu7QExz3SA/7LZu5E9dwZBHG+Uyt3y3dExR/BCQCgkTOeqd0DKsS7xZNlAhkdNbbtKsZjMLS128YmdoStfSXY=`
 
 const translations = {
-    hi: {"Hello World": "हैलो लोग", "Home": "हैलो लोग"},
-    kn: {"Hello World": "ಹಲೋ ವರ್ಲ್ಡ್", "Home": "ಮನೆ"},
-    ta: {"Hello World": "வணக்கம் உலகம்", "Home": "இல்லம்"},
-    ma: {"Hello World": "नमस्कार जग", "Home": "मुख्यपृष्ठ"},
-    ml: {"Hello World": "ഹലോ വേൾഡ്", "Home": "വീട്"},
-    pa: {}
+    hi: {"Hello World": "हैलो लोग", "Home": "हैलो लोग", '49f68a5c8493ec2c0bf489821c21fc3b': 0},
+    kn: {"Hello World": "ಹಲೋ ವರ್ಲ್ಡ್", "Home": "ಮನೆ", '8c7e6965b4169689a88b313bbe7450f9': 0},
+    ta: {"Hello World": "வணக்கம் உலகம்", "Home": "இல்லம்", fec8f2a3f2e808ccb17c4d278b4fa469: 0},
+    ma: {"Hello World": "नमस्कार जग", "Home": "मुख्यपृष्ठ", b74df323e3939b563635a2cba7a7afba: 0},
+    ml: {"Hello World": "ഹലോ വേൾഡ്", "Home": "വീട്", '9830e1f81f623b33106acc186b93374e': 0 },
+    pa: {e529a9cea4a728eb9c5828b13b22844c: 0 },
+    te: {'569ef72642be0fadd711d6a468d68ee1': 0 }
 }
 
 
@@ -172,8 +173,12 @@ app.get('/logout',  function (req, res) {
     res.send(translation);
 });
 
-app.get("/version", function(req, res) {
-    res.send({version: 10})
+app.get("/lang/:lang/version/:versionId", function(req, res) {
+    const versionId = req.params.versionId;
+    const lang = req.params.lang;
+    const version = translations[lang][versionId]
+
+    res.send({version})
 })
 
 app.listen(3000);
