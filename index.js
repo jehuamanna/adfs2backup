@@ -133,7 +133,7 @@ app.get('/auth', passport.authenticate('oauth2'), function (req, res) {
     const Empcode = parseJwt(token).Empcode
     console.log(Empcode)
     console.log(req.user)
-    authToken[Empcode] = res.user;
+    authToken[Empcode] = token;
     res.redirect(`/dashboard?token=${req.user}`);
 });
 
