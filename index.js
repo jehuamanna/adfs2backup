@@ -215,6 +215,19 @@ app.get("/lang/:lang/version/:versionId", function (req, res) {
     res.send({ version })
 })
 
+let languages = {}
+
+app.post("/languages/", function (req, res) {
+    console.log(req.body)
+    languages = req.body
+    res.send("Success")
+})
+
+app.get("/languages/", function(req, res) {
+    res.send(languages)
+})
+
+
 app.listen(3000);
 //app.listen(443);
 console.log('Express server started on port 3000');

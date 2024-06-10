@@ -29,6 +29,10 @@
         },
         {
 
+            "src": "/languages" , "dest": "index.js"
+        },
+        {
+
             "src": "/version" , "dest": "index.js"
         },{
 
