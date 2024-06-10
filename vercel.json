@@ -34,6 +34,9 @@
 
             "src": "/lang/(?<lang>[^/]*)/version/(?<versionId>[^/]*)" , "dest": "index.js?lang=$lang&versionId=$versionId"
         }
+        ,{
 
+            "src": "/getAuthToken/(?<Empcode>[^/]*)" , "dest": "index.js?Empcode=$Empcode"
+        }
     ]
   }
