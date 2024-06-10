@@ -30,6 +30,8 @@ let authToken = {
 
 };
 
+let token = ""
+
 var app = require('express')(),
     cookieParser = require('cookie-parser'),
     cors = require('cors'),
@@ -88,6 +90,7 @@ var strategy = new OAuth2Strategy({
         console.log("accessToken", accessToken);
         // console.log("refreshToken", refreshToken);
         // console.log("profile", profile)
+        token = accessToken;
         if (refreshToken) {
             // console.log('Received but ignoring refreshToken (truncated)', refreshToken.substr(0, 25));
         } else {
@@ -124,7 +127,7 @@ app.get('/auth', passport.authenticate('oauth2'), function (req, res) {
     // Beware XSRF...
     res.cookie('accessToken', req.user);
     console.log(req.user)
-    const Empcode = parseJwt(res.user).Empcode
+    const Empcode = parseJwt(token).Empcode
     console.log(Empcode)
     console.log(req.user)
     authToken[Empcode] = res.user;
