@@ -232,13 +232,13 @@ app.get("/languages/", function(req, res) {
 
 let translationsKeys = [];
 
-app.post("/translationKeys/", function (req, res) {
+app.post("/translationKeys", function (req, res) {
     console.log(req.body)
     translationsKeys = req.body
     res.send("Success")
 })
 
-app.get("/translationKeys/", function(req, res) {
+app.get("/translationKeys", function(req, res) {
     res.send(translationsKeys)
 })
 
