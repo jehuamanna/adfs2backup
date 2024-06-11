@@ -15,7 +15,7 @@ const crtbase64 = `MIIC4DCCAcigAwIBAgIQOatG6IEZeqhBINbcxHNVJTANBgkqhkiG9w0BAQsFA
 //     te: { '569ef72642be0fadd711d6a468d68ee1': 1 }
 // }
 
-const translations = {}
+let translations = {}
 
 
 function parseJwt (token) {
