@@ -239,7 +239,7 @@ app.post("/translationKeys", function (req, res) {
 })
 
 app.get("/translationKeys", function(req, res) {
-    res.send(JSON.parse(translationsKeys))
+    res.send(translationsKeys)
 })
 
 
