@@ -34,7 +34,12 @@
         {
 
             "src": "/version" , "dest": "index.js"
-        },{
+        },
+        {
+
+            "src": "/translationKeys" , "dest": "index.js"
+        },
+        {
 
             "src": "/lang/(?<lang>[^/]*)/version/(?<versionId>[^/]*)" , "dest": "index.js?lang=$lang&versionId=$versionId"
         }

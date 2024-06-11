@@ -230,6 +230,18 @@ app.get("/languages/", function(req, res) {
     res.send(translations)
 })
 
+let translationsKeys = [];
+
+app.post("/translationKeys/", function (req, res) {
+    console.log(req.body)
+    translationsKeys = req.body
+    res.send("Success")
+})
+
+app.get("/translationKeys/", function(req, res) {
+    res.send(translationsKeys)
+})
+
 
 app.listen(3000);
 //app.listen(443);
