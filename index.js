@@ -234,7 +234,7 @@ let translationsKeys = [];
 
 app.post("/translationKeys", function (req, res) {
     console.log(req.body)
-    translationsKeys = req.body
+    translationsKeys = req.body.keys || []
     res.send("Success")
 })
 
