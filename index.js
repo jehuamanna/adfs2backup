@@ -157,7 +157,8 @@ app.get("/dashboard", function (req, res) {
         function sendTokenToParent(token) {
             /* window.opener.postMessage(token, window.location.origin); */
             /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
-            window.opener.postMessage(token, "https://dev-frplus.dtdc.com/");
+            /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
+window.opener.postMessage(token, "https://localhost:1234");
             window.close();
             console.log(token);
         }
