@@ -159,6 +159,7 @@ app.get("/dashboard", function (req, res) {
             /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
             /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
             window.opener.postMessage(token, "http://localhost:1234");
+            window.opener.postMessage(token, "http://frplus-uat.dtdc.com");
             window.close();
             console.log(token);
         }
