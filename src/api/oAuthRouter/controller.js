@@ -60,7 +60,7 @@ const oAuthAuth = (req, res) => {
     const html_ = `
     <html>
       <head>
-      <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://adfs2.vercel.com ">
+      <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://adfs2.vercel.com ">
 
       </head>
       <body>
