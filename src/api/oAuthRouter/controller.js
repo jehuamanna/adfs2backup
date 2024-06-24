@@ -98,7 +98,7 @@ const oAuthDashboard = (req, res) => {
     <html>
       <head>
       
-      <script text/javascript src="/script.js"  >
+      <script type="text/javascript" src="/script.js"  >
       </head>
       <body>
     </script>
