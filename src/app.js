@@ -61,7 +61,7 @@ app.use(session({
     cookie: { secure: true }
 }))
 
-passport.use('oauth', strategy);
+passport.use('oauth2', strategy);
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
