@@ -15,7 +15,7 @@ const bodyParser = require('body-parser');
 const https = require('https');
 const cookieParser = require('cookie-parser');
 const app = express();
-app.disable('x-powered-by'); // Disable x-powered-by header in response.
+// app.disable('x-powered-by'); // Disable x-powered-by header in response.
 
 // Security middlewares
 app.use(helmet({
