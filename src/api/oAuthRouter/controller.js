@@ -75,7 +75,7 @@ const oAuthDashboard = (req, res) => {
         /* window.opener.postMessage(token, window.location.origin); */
         /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
         /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
-        const targetOrigin = "https://adfs2.vercel.app"; // Replace with the actual origin of the parent window
+        const targetOrigin = "http://localhost:1234"; // Replace with the actual origin of the parent window
         const targetWindow = window.opener || window.parent;
 
         if (targetWindow) {
