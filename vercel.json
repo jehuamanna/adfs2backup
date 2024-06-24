@@ -5,43 +5,43 @@
     ],
     "routes" : [
         {
-            "src": "/auth-service/api/oauth/login" , "dest": "server.js.js"
+            "src": "/auth-service/api/oauth/login" , "dest": "server.js"
         },
         {
 
-            "src": "/auth-service/api/oauth/login" , "dest": "server.js.js"
+            "src": "/auth-service/api/oauth/login" , "dest": "server.js"
         },
         {
 
-            "src": "/auth-service/api/oauth/dashboard" , "dest": "server.js.js"
+            "src": "/auth-service/api/oauth/dashboard" , "dest": "server.js"
         },
         {
 
-            "src": "/content/translations/(?<lang>[^/]*)" , "dest": "server.js.js?lang=$lang"
+            "src": "/content/translations/(?<lang>[^/]*)" , "dest": "server.js?lang=$lang"
         },
         {
 
-            "src": "/content/translations" , "dest": "server.js.js"
+            "src": "/content/translations" , "dest": "server.js"
         },
         {
 
-            "src": "/languages" , "dest": "server.js.js"
+            "src": "/languages" , "dest": "server.js"
         },
         {
 
-            "src": "/version" , "dest": "server.js.js"
+            "src": "/version" , "dest": "server.js"
         },
         {
 
-            "src": "/translationKeys" , "dest": "server.js.js"
+            "src": "/translationKeys" , "dest": "server.js"
         },
         {
 
-            "src": "/lang/(?<lang>[^/]*)/version/(?<versionId>[^/]*)" , "dest": "server.js.js?lang=$lang&versionId=$versionId"
+            "src": "/lang/(?<lang>[^/]*)/version/(?<versionId>[^/]*)" , "dest": "server.js?lang=$lang&versionId=$versionId"
         }
         ,{
 
-            "src": "/getAuthToken/(?<Empcode>[^/]*)" , "dest": "server.js.js?Empcode=$Empcode"
+            "src": "/getAuthToken/(?<Empcode>[^/]*)" , "dest": "server.js?Empcode=$Empcode"
         }
     ]
   }
