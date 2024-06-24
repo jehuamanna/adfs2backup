@@ -29,8 +29,8 @@ const oAuthAuth = (req, res) => {
     console.log(Empcode);
     // console.log(req.user);
     // authToken[Empcode] = token;
-    res.redirect(`/dashboard?token=${req.user}`);
-    return res.sendStatus(200);
+    
+    return res.redirect(`/dashboard?token=${req.user}`);
   } catch (error) {
     console.log(error)
     new ExpressError();
@@ -72,8 +72,8 @@ const dashboard = (req, res, next) => {
         \`;
         </script>
     `;
-    res.send(html_);
-    return res.sendStatus(200);
+    
+    return res.send(html_);
   } catch (error) {
     console.log(error)
 
