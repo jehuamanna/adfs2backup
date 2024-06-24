@@ -36,14 +36,14 @@ app.use(cors());
 
 
 // Context
-app.use(expressContext.expressContextMiddleware());
+// app.use(expressContext.expressContextMiddleware());
 
-const reqidOptions = {
-  idPrefix: process.env.SERVICE_NAME || 'service-name',
-  setInContext: true,
-};
+// const reqidOptions = {
+//   idPrefix: process.env.SERVICE_NAME || 'service-name',
+//   setInContext: true,
+// };
 
-app.use(expressReqid(reqidOptions));
+// app.use(expressReqid(reqidOptions));
 
 
 console.warn('Not verifying HTTPS certificates');
