@@ -5,19 +5,15 @@
     ],
     "routes" : [
         {
-            "src": "/login" , "dest": "index.js"
+            "src": "/auth-service/api/oauth/login" , "dest": "index.js"
         },
         {
 
-            "src": "/auth" , "dest": "index.js"
+            "src": "/auth-service/api/oauth/login" , "dest": "index.js"
         },
         {
 
-            "src": "/logout" , "dest": "index.js"
-        },
-        {
-
-            "src": "/dashboard" , "dest": "index.js"
+            "src": "/auth-service/api/oauth/dashboard" , "dest": "index.js"
         },
         {
 
