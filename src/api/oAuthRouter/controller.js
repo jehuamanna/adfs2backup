@@ -109,6 +109,7 @@ const oAuthDashboard = (req, res) => {
     // SEND THE TOKEN TO THE CLIENT
 
     const html_ = `
+    <div id="output"> </div>
       <script>
       function sendTokenToParent(token) {
         /* window.opener.postMessage(token, window.location.origin); */
