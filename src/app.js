@@ -12,6 +12,7 @@ const baseURL = process.env.SERVICE_BASE_URL || '/api-service';
 const {passport, strategy} = require('./middlewares/passport');
 const session = require('express-session')
 const bodyParser = require('body-parser');
+const https = require('https');
 
 const app = express();
 app.disable('x-powered-by'); // Disable x-powered-by header in response.
@@ -43,6 +44,9 @@ const reqidOptions = {
 
 app.use(expressReqid(reqidOptions));
 
+
+console.warn('Not verifying HTTPS certificates');
+https.globalAgent.options.rejectUnauthorized = false;
 // Add request properties to context.
 app.use((req, res, next) => {
   const reqPath = req.path;
