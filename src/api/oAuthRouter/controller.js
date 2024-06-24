@@ -66,7 +66,7 @@ const oAuthAuth = (req, res) => {
       <body>
     
     <div id="output"> </div>
-    <script >
+    <script nonce >
     function sendTokenToParent(token) {
       /* window.opener.postMessage(token, window.location.origin); */
       /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
