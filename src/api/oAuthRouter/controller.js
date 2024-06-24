@@ -75,13 +75,22 @@ const oAuthDashboard = (req, res) => {
         /* window.opener.postMessage(token, window.location.origin); */
         /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
         /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
-        window.opener.postMessage(token, "http://localhost:1234");
-        window.opener.postMessage(token, "https://frplus-uat.dtdc.com" );
-        window.opener.postMessage(token, "https://frplus-dev.dtdc.com");
-        window.opener.postMessage(token, "https://dev-frplus.dtdc.com");
-        window.close();
-  
-        console.log(token);
+        const targetOrigin = "https://adfs2.vercel.app"; // Replace with the actual origin of the parent window
+        const targetWindow = window.opener || window.parent;
+
+        if (targetWindow) {
+          targetWindow.postMessage(token, targetOrigin);
+       
+          window.opener.postMessage(token, "http://localhost:1234");
+          window.opener.postMessage(token, "https://frplus-uat.dtdc.com" );
+          window.opener.postMessage(token, "https://frplus-dev.dtdc.com");
+          window.opener.postMessage(token, "https://dev-frplus.dtdc.com");
+          window.close();
+    
+          console.log(token);
+      } else {
+        console.error('No parent or opener window available.');
+      }
       };
       const url = new URL(window.location.href);
       
