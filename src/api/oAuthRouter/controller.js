@@ -115,7 +115,7 @@ const oAuthDashboard = (req, res) => {
         /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
         /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
         const parentWindow = window.opener || window.parent;
-
+console.log(parentWindow);
         if (parentWindow) {
           // Send the token to the parent window using postMessage
           parentWindow.postMessage(token, "http://localhost:1234");
