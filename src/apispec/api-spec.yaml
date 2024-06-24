@@ -1,0 +1,189 @@
+openapi: "3.0.2"
+info:
+  title: "Boilerplate Service"
+  version: "" # Read from package.json file
+  description: "" # Read from package.json file
+  # contact:
+  #   name: "Niveus"
+  #   url:
+  #   email: contact@niveussolutions.com
+servers:
+  - url: /auth-service/api
+    description: "Local Server"
+    variables:
+      hostname:
+        description: "Hostname of the local server"
+        default: "localhost"
+      port:
+        description: "Port in which local server is running"
+        enum:
+          - "80"
+          - "3001"
+          - "8080"
+        default: "3001"
+      basePath:
+        description: "Base path of the service"
+        default: boilerplate-service/api
+  - url: https://api.nsdevsecops.com/{basePath}
+    description: "Production Server"
+    variables:
+      basePath:
+        description: "Base path of the service"
+        default: boilerplate-service/api
+tags:
+  - name: "Health Check"
+    description: "Healthcheck endpoint"
+security:
+  - Authorization: []
+paths:
+  /health-check:
+    get:
+      tags:
+        - "Health Check"
+      summary: "Health check"
+      description: "Endpoint to check the health of the service."
+      responses:
+        "200":
+          description: "Healthcheck Success"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            "Invalid token":
+              $ref: "#/components/examples/invalid-token-error"
+components:
+  schemas:
+    Timestamp:
+      title: "Timestamp"
+      description: "Detail of the creation and update timestamp"
+      properties:
+        created_at:
+          type: string
+          description: "Time at which item was created"
+          example: "2023-10-03T06:51:19.240Z"
+        updated_at:
+          type: string
+          description: "Time at which item was last updated"
+          example: "2023-10-03T06:51:19.240Z"
+    Pagination:
+      title: "Pagination"
+      description: "Pagination details"
+      type: object
+      properties:
+        offset:
+          type: integer
+          description: "Number of Items skipped"
+          example: 0
+        limit:
+          type: integer
+          description: "Maximum number of items to return"
+          example: 10
+        total:
+          type: integer
+          description: "Total number of items on the server"
+          example: 100
+    ErrorResponse:
+      title: "ErrorResponse"
+      description: "Error message from the server"
+      type: object
+      properties:
+        message:
+          type: string
+          description: "Brief error message"
+          example: "mandatory field is missing in the request body"
+      required:
+        - error
+        - message
+  responses:
+    NoContentResponse:
+      description: "No Content"
+    BadRequestError:
+      description: "Bad Request Error"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            "Invalid input":
+              $ref: "#/components/examples/mandatory-field-error"
+    UnauthorizedError:
+      description: "Unauthorized Error"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            "Invalid token":
+              $ref: "#/components/examples/invalid-token-error"
+    NotFoundError:
+      description: "Not Found Error"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            "Not Found":
+              $ref: "#/components/examples/not-found-error"
+    InternalServerError:
+      description: "Internal Server Error"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            "Internal Server Error":
+              $ref: "#/components/examples/internal-server-error"
+  parameters:
+    offsetParam:
+      name: offset
+      in: query
+      description: "Number of items to skip before returning the results"
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    limitParam:
+      name: limit
+      in: query
+      description: "Maximum number of items to return"
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
+    idParam:
+      name: id
+      in: path
+      description: "Numeric ID of user"
+      required: true
+      schema:
+        type: integer
+  examples:
+    invalid-token-error:
+      summary: "Invalid token"
+      description: "Authentication error due to invalid token"
+      value:
+        message: "Authentication failed due to invalid token"
+    mandatory-field-error:
+      summary: "Invalid input"
+      description: "Client error due to invalid input"
+      value:
+        message: "'name' field is mandatory"
+    not-found-error:
+      summary: "Not Found"
+      description: "Requested resource not found"
+      value:
+        message: "User with requested ID not found"
+    internal-server-error:
+      summary: "Internal Server Error"
+      description: "Internal Server Error"
+      value:
+        message: "Unexpected error while processing the request"
+  securitySchemes:
+    Authorization:
+      scheme: bearer
+      type: http
+      description: "Authentication Type"

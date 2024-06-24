@@ -1,0 +1,14 @@
+{
+    "verbose": true,
+    "watch": [
+        "server.js",
+        "src/"
+    ],
+    "ignore": [
+        "**/test/**",
+        "**/docs/**",
+        ".git",
+        "node_modules/**/node_modules"
+    ],
+    "ext": "js, json, yaml"
+}
