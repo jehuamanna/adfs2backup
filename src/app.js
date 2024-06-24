@@ -48,6 +48,7 @@ app.use((req, res, next) => {
 
   next();
 });
+app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
