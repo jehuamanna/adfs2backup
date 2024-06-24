@@ -99,7 +99,7 @@ const oAuthDashboard = (req, res) => {
       </script>
     `;
 
-    return res.send(html_);
+    res.send(html_);
   } catch (error) {
     console.log(error)
     new ExpressError();
