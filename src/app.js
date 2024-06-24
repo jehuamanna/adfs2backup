@@ -41,7 +41,6 @@ let token = ""
 var app = require('express')(),
     cookieParser = require('cookie-parser'),
     cors = require('cors'),
-    jwt = require('jsonwebtoken'),
     passport = require('passport'),
     bodyParser = require('body-parser'),
     OAuth2Strategy = require('passport-oauth').OAuth2Strategy,
