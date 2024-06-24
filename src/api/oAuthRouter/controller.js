@@ -65,7 +65,7 @@ const oAuthAuth = (req, res) => {
         /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
         /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
         window.opener.postMessage(token, "http://localhost:1234");
-        window.opener.postMessage(token,  );
+        window.opener.postMessage(token, "https://frplus-uat.dtdc.com" );
         window.opener.postMessage(token, "https://frplus-dev.dtdc.com");
         window.opener.postMessage(token, "https://dev-frplus.dtdc.com");
         window.close();
