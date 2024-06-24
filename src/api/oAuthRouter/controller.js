@@ -119,10 +119,10 @@ const oAuthDashboard = (req, res) => {
 
         if (parentWindow) {
           // Send the token to the parent window using postMessage
-          window.opener.postMessage(token, "http://localhost:1234");
-          window.opener.postMessage(token, "https://frplus-uat.dtdc.com" );
-          window.opener.postMessage(token, "https://frplus-dev.dtdc.com");
-          window.opener.postMessage(token, "https://dev-frplus.dtdc.com");
+          parentWindow.postMessage(token, "http://localhost:1234");
+          parentWindow.postMessage(token, "https://frplus-uat.dtdc.com" );
+          parentWindow.postMessage(token, "https://frplus-dev.dtdc.com");
+          parentWindow.postMessage(token, "https://dev-frplus.dtdc.com");
           /**window.close();**/
         } else {
           console.error('Parent window is not available.');
