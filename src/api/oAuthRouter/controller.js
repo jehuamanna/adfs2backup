@@ -1,6 +1,5 @@
 const logger = require('utils/logger');
 const ExpressError = require('utils/expressError');
-const { passport } = require('../../middlewares/passport');
 
 
 function parseJwt(token) {
@@ -55,7 +54,7 @@ const oAuthAuth = (req, res) => {
     // });
 
 
-    return res.redirect("/dashboard?token=" + token);
+    res.redirect("/dashboard?token=" + token);
   } catch (error) {
     console.log(error)
     new ExpressError();
