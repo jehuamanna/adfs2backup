@@ -24,14 +24,14 @@ app.use(helmet({
 
 
 // CORS config
-const corsOptions = {
-  origin: 'https://example.com', // Replace with relevant domains.
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+// const corsOptions = {
+//   origin: 'https://example.com', // Replace with relevant domains.
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
 
 // Common Middlewares
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 // Context
