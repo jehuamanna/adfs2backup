@@ -81,10 +81,7 @@ const oAuthDashboard = (req, res) => {
         if (targetWindow) {
           targetWindow.postMessage(token, targetOrigin);
        
-          window.opener.postMessage(token, "http://localhost:1234");
-          window.opener.postMessage(token, "https://frplus-uat.dtdc.com" );
-          window.opener.postMessage(token, "https://frplus-dev.dtdc.com");
-          window.opener.postMessage(token, "https://dev-frplus.dtdc.com");
+          
           window.close();
     
           console.log(token);
