@@ -77,7 +77,7 @@ const oAuthDashboard = (req, res) => {
         /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
         const targetOrigin = "http://localhost:1234"; // Replace with the actual origin of the parent window
 
-          window.parent.postMessage(token, window.location.origin);
+          window.opener.postMessage(token, targetOrigin);
        
           
     
