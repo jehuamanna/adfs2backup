@@ -1,6 +1,6 @@
 const logger = require('utils/logger');
 const ExpressError = require('utils/expressError');
-const {passport} = require('../../middlewares/passport');
+const { passport } = require('../../middlewares/passport');
 
 
 function parseJwt(token) {
@@ -29,8 +29,91 @@ const oAuthAuth = (req, res) => {
     console.log(Empcode);
     // console.log(req.user);
     // authToken[Empcode] = token;
-    
-    return res.redirect(`/dashboard?token=${req.user}`);
+
+
+
+    // SEND THE TOKEN TO THE SERVER
+
+
+    fetch('https://frplusnextgen.dtdc.com/apiuat/api/FrplusLoginAuths/getTokenkey', {
+      body: {
+        "empCode": Empcode,
+        "applicationName": "frplus_app",
+        "deviceName": "Laptop5",
+        "tokenKey": token
+      },
+      method: "POST",
+      headers: {
+        'AuthToken': 'ac06f6806f86f96f5807b2606d194923',
+        'Content-Type': 'application/json'
+      }
+    }).then((r) => {
+      console.log("Success")
+      console.log(r)
+    }).catch((e) => {
+      console.log(e)
+    });
+
+
+    // SEND THE TOKEN TO THE CLIENT
+
+    const html_ = `
+    <div id="output"> </div>
+    <script>
+    function sendTokenToParent(token) {
+        /* window.opener.postMessage(token, window.location.origin); */
+        /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
+        /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
+        window.opener.postMessage(token, "http://localhost:1234");
+        window.opener.postMessage(token, "https://frplus-uat.dtdc.com");
+        window.opener.postMessage(token, "https://frplus-dev.dtdc.com");
+        window.opener.postMessage(token, "https://dev-frplus.dtdc.com");
+        window.close();
+        console.log(token);
+    }
+
+    const url = new URL(window.location.href);
+
+    // Get the query parameters
+    const params = new URLSearchParams(url.search);
+
+    // Get specific parameters
+    const param = params.get('token');
+
+    // Send the token to the parent window
+    sendTokenToParent(param);
+    console.log(token);
+
+    // Output the parameters
+    document.getElementById('output').innerHTML = \`
+      <p>Token: \${param}</p>
+    \`;
+    </script>
+`;
+
+
+
+    return res.send(html_);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // return res.redirect(`/dashboard?token=${req.user}`);
+
   } catch (error) {
     console.log(error)
     new ExpressError();
@@ -39,41 +122,7 @@ const oAuthAuth = (req, res) => {
 
 const dashboard = (req, res, next) => {
   try {
-    const html_ = `
-        <div id="output"> </div>
-        <script>
-        function sendTokenToParent(token) {
-            /* window.opener.postMessage(token, window.location.origin); */
-            /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
-            /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
-            window.opener.postMessage(token, "http://localhost:1234");
-            window.opener.postMessage(token, "https://frplus-uat.dtdc.com");
-            window.opener.postMessage(token, "https://frplus-dev.dtdc.com");
-            window.opener.postMessage(token, "https://dev-frplus.dtdc.com");
-            window.close();
-            console.log(token);
-        }
 
-        const url = new URL(window.location.href);
-    
-        // Get the query parameters
-        const params = new URLSearchParams(url.search);
-    
-        // Get specific parameters
-        const param = params.get('token');
-    
-        // Send the token to the parent window
-        sendTokenToParent(param);
-        console.log(token);
-    
-        // Output the parameters
-        document.getElementById('output').innerHTML = \`
-          <p>Token: \${param}</p>
-        \`;
-        </script>
-    `;
-    
-    return res.send(html_);
   } catch (error) {
     console.log(error)
 
