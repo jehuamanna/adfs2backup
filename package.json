@@ -22,6 +22,7 @@
     "@niveus/express-reqid": "^1.0.0",
     "@niveus/winston-utils": "^0.0.1",
     "constants": "file:src/constants",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "db": "file:src/db",
     "dotenv": "^16.4.5",
