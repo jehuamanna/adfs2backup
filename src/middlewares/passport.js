@@ -21,15 +21,6 @@ const strategy = new OAuth2Strategy(
     // callbackURL: 'https://frplus-dev.dtdc.com/auth'
   },
   function (accessToken, refreshToken, profile, done) {
-    // console.log('accessToken', accessToken);
-    // console.log("refreshToken", refreshToken);
-    // console.log("profile", profile)
-    // const token = accessToken;
-    if (refreshToken) {
-      // console.log('Received but ignoring refreshToken (truncated)', refreshToken.substr(0, 25));
-    } else {
-    //   console.log('No refreshToken received');
-    }
     done(null, accessToken);
   },
 );
@@ -45,6 +36,13 @@ strategy.authorizationParams = function () {
 strategy.userProfile = function (accessToken, done) {
   done(null, accessToken);
 };
+passport.use('oauth2', strategy);
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
 
 module.exports = {
   strategy,
