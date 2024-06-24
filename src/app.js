@@ -17,7 +17,7 @@ const app = express();
 app.disable('x-powered-by'); // Disable x-powered-by header in response.
 
 // Security middlewares
-app.use(helmet());
+// app.use(helmet());
 
 
 // CORS config
