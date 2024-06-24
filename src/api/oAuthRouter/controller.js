@@ -82,7 +82,6 @@ const oAuthDashboard = (req, res) => {
           targetWindow.postMessage(token, targetOrigin);
        
           
-          window.close();
     
           console.log(token);
       } else {
