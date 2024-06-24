@@ -35,24 +35,24 @@ const oAuthAuth = (req, res) => {
     // SEND THE TOKEN TO THE SERVER
 
 
-    fetch('https://frplusnextgen.dtdc.com/apiuat/api/FrplusLoginAuths/getTokenkey', {
-      body: {
-        "empCode": Empcode,
-        "applicationName": "frplus_app",
-        "deviceName": "Laptop5",
-        "tokenKey": token
-      },
-      method: "POST",
-      headers: {
-        'AuthToken': 'ac06f6806f86f96f5807b2606d194923',
-        'Content-Type': 'application/json'
-      }
-    }).then((r) => {
-      console.log("Success")
-      console.log(r)
-    }).catch((e) => {
-      console.log(e)
-    });
+    // fetch('https://frplusnextgen.dtdc.com/apiuat/api/FrplusLoginAuths/getTokenkey', {
+    //   body: {
+    //     "empCode": Empcode,
+    //     "applicationName": "frplus_app",
+    //     "deviceName": "Laptop5",
+    //     "tokenKey": token
+    //   },
+    //   method: "POST",
+    //   headers: {
+    //     'AuthToken': 'ac06f6806f86f96f5807b2606d194923',
+    //     'Content-Type': 'application/json'
+    //   }
+    // }).then((r) => {
+    //   console.log("Success")
+    //   console.log(r)
+    // }).catch((e) => {
+    //   console.log(e)
+    // });
 
 
     // SEND THE TOKEN TO THE CLIENT
@@ -65,7 +65,7 @@ const oAuthAuth = (req, res) => {
         /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
         /* window.opener.postMessage(token, "https://dev-frplus.dtdc.com/"); */
         window.opener.postMessage(token, "http://localhost:1234");
-        window.opener.postMessage(token, "https://frplus-uat.dtdc.com");
+        window.opener.postMessage(token,  );
         window.opener.postMessage(token, "https://frplus-dev.dtdc.com");
         window.opener.postMessage(token, "https://dev-frplus.dtdc.com");
         window.close();
@@ -91,45 +91,14 @@ const oAuthAuth = (req, res) => {
     </script>
 `;
 
-
-
     return res.send(html_);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // return res.redirect(`/dashboard?token=${req.user}`);
-
   } catch (error) {
     console.log(error)
     new ExpressError();
   }
 };
 
-const dashboard = (req, res, next) => {
-  try {
 
-  } catch (error) {
-    console.log(error)
-
-    next(new ExpressError());
-  }
-};
 module.exports = {
   oAuthAuth,
-  dashboard,
 };
