@@ -1,12 +1,13 @@
 const logger = require('utils/logger');
 const ExpressError = require('utils/expressError');
-const passport = require('../../middlewares/passport');
+const {passport} = require('../../middlewares/passport');
 const oAuthLogin = (req, res, next) => {
   try {
     logger.info('Called health-check endpoint');
     passport.authenticate('oauth2');
     return res.sendStatus(200);
   } catch (error) {
+    console.log(error)
     next(new ExpressError());
   }
 };
