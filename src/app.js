@@ -49,13 +49,13 @@ app.use(cors());
 console.warn('Not verifying HTTPS certificates');
 https.globalAgent.options.rejectUnauthorized = false;
 // Add request properties to context.
-app.use((req, res, next) => {
-  const reqPath = req.path;
+// app.use((req, res, next) => {
+//   const reqPath = req.path;
 
-  expressContext.setMany({ reqPath });
+//   expressContext.setMany({ reqPath });
 
-  next();
-});
+//   next();
+// });
 app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('trust proxy', 1) // trust first proxy
