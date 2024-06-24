@@ -138,8 +138,8 @@ const oAuthDashboard = (req, res) => {
       console.log(token);
   
       
-      </head>
       </script>
+      </head>
       <body>
     </body>
     </html>
