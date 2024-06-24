@@ -11,6 +11,7 @@ const oAuthRouter = require('./api/oAuthRouter/routes');
 const baseURL = process.env.SERVICE_BASE_URL || '/api-service';
 const {passport, strategy} = require('./middlewares/passport');
 const session = require('express-session')
+const bodyParser = require('body-parser');
 
 const app = express();
 app.disable('x-powered-by'); // Disable x-powered-by header in response.
