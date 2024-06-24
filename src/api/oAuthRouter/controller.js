@@ -55,12 +55,23 @@ const oAuthAuth = (req, res) => {
     // });
 
 
+    return res.redirect("/dashboard?token="+token);
+  } catch (error) {
+    console.log(error)
+    new ExpressError();
+  }
+};
+
+
+
+const oAuthDashboard = (req, res) => {
+  try {
+    logger.info('Called health-check endpoint');
     // SEND THE TOKEN TO THE CLIENT
 
     const html_ = `
     <html>
       <head>
-      <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://adfs2.vercel.com ">
 
       </head>
       <body>
@@ -107,7 +118,7 @@ const oAuthAuth = (req, res) => {
   }
 };
 
-
 module.exports = {
   oAuthAuth,
+  oAuthDashboard,
 };
