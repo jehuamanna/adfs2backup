@@ -10,6 +10,7 @@ const apiBaseRouter = require('./api/apiBaseRouter');
 const oAuthRouter = require('./api/oAuthRouter/routes');
 const baseURL = process.env.SERVICE_BASE_URL || '/api-service';
 const {passport, strategy} = require('./middlewares/passport');
+const session = require('express-session')
 
 const app = express();
 app.disable('x-powered-by'); // Disable x-powered-by header in response.
@@ -48,6 +49,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}))
+
 passport.use('oauth2', strategy);
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -56,6 +65,7 @@ passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 
+app.use(passport.initialize());
 // API docs
 app.use(`${baseURL}/api-docs`, apiSpecRouter);
 
@@ -63,7 +73,7 @@ app.use(`${baseURL}/api-docs`, apiSpecRouter);
 app.use(`${baseURL}/api`, apiBaseRouter);
 
 // API base OAuth URL
-app.use(`${baseURL}/api/oauth`, oAuthRouter);
+app.use(`/`, oAuthRouter);
 
 // Error handler
 app.use(errorHandler);

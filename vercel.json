@@ -5,15 +5,15 @@
     ],
     "routes" : [
         {
-            "src": "/auth-service/api/oauth/login" , "dest": "server.js"
+            "src": "/login" , "dest": "server.js"
         },
         {
 
-            "src": "/auth-service/api/oauth/login" , "dest": "server.js"
+            "src": "/login" , "dest": "server.js"
         },
         {
 
-            "src": "/auth-service/api/oauth/dashboard" , "dest": "server.js"
+            "src": "/dashboard" , "dest": "server.js"
         },
         {
 
