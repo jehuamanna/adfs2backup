@@ -21,6 +21,10 @@
         },
         {
 
+            "src": "/script.js" , "dest": "server.js"
+        },
+        {
+
             "src": "/content/translations/(?<lang>[^/]*)" , "dest": "server.js?lang=$lang"
         },
         {

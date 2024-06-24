@@ -62,22 +62,13 @@ const oAuthAuth = (req, res) => {
   }
 };
 
-
-
-const oAuthDashboard = (req, res) => {
+const oAuthScriptJs = (req, res) => {
   try {
     logger.info('Called health-check endpoint');
     // SEND THE TOKEN TO THE CLIENT
 
-    const html_ = `
-    <html>
-      <head>
-
-      </head>
-      <body>
+    const script = `
     
-    <div id="output"> </div>
-    <script nonce >
     function sendTokenToParent(token) {
       /* window.opener.postMessage(token, window.location.origin); */
       /*window.opener.postMessage(token, "https://testingadfs-bhgjyz8fh-jehus-projects.vercel.app/"); */
@@ -88,24 +79,28 @@ const oAuthDashboard = (req, res) => {
       window.opener.postMessage(token, "https://dev-frplus.dtdc.com");
       window.close();
       console.log(token);
-    }
-    
-    const url = new URL(window.location.href);
-    
-    // Get the query parameters
-    const params = new URLSearchParams(url.search);
-    
-    // Get specific parameters
-    const param = params.get('token');
-    
-    // Send the token to the parent window
-    sendTokenToParent(param);
-    console.log(token);
-    
-    // Output the parameters
-    document.getElementById('output').innerHTML = \`
-    <p>Token: \${param}</p>
-    \`;
+    };`
+
+    return res.send(script);
+  } catch (error) {
+    console.log(error)
+    new ExpressError();
+  }
+};
+
+
+const oAuthDashboard = (req, res) => {
+  try {
+    logger.info('Called health-check endpoint');
+    // SEND THE TOKEN TO THE CLIENT
+
+    const html_ = `
+    <html>
+      <head>
+      
+      <script src="/script.js"  >
+      </head>
+      <body>
     </script>
     </body>
     </html>
@@ -121,4 +116,5 @@ const oAuthDashboard = (req, res) => {
 module.exports = {
   oAuthAuth,
   oAuthDashboard,
+  oAuthScriptJs,
 };
