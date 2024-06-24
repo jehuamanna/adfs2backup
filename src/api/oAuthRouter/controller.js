@@ -32,6 +32,7 @@ const oAuthAuth = (req, res) => {
     res.redirect(`/dashboard?token=${req.user}`);
     return res.sendStatus(200);
   } catch (error) {
+    console.log(error)
     new ExpressError();
   }
 };
@@ -74,6 +75,8 @@ const dashboard = (req, res, next) => {
     res.send(html_);
     return res.sendStatus(200);
   } catch (error) {
+    console.log(error)
+
     next(new ExpressError());
   }
 };
