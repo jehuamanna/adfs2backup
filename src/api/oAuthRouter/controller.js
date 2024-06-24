@@ -107,7 +107,6 @@ const oAuthDashboard = (req, res) => {
   try {
     logger.info('Called health-check endpoint');
     // SEND THE TOKEN TO THE CLIENT
-
     const html_ = `
     <div id="output"> </div>
       <script>
@@ -142,7 +141,6 @@ const oAuthDashboard = (req, res) => {
   
       // Send the token to the parent window
       sendTokenToParent(param);
-      console.log(token);
   
       
       </script>
