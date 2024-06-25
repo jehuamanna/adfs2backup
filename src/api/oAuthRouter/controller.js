@@ -118,4 +118,5 @@ const oAuthDashboard = (req, res) => {
 module.exports = {
   oAuthAuth,
   oAuthDashboard,
+  oAuthHome
 };
