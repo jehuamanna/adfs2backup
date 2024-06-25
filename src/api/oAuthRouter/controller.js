@@ -20,7 +20,7 @@ function parseJwt(token) {
 const oAuthHome = function (req, res) {
   
   res.send(
-      <h1>Hello World</h1>);
+      "<h1>Hello World</h1>");
 }
 
 
