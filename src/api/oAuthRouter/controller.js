@@ -18,12 +18,9 @@ function parseJwt(token) {
 }
 
 const oAuthHome = function (req, res) {
-  req.user = validateAccessToken(req.cookies['accessToken']);
-  console.log(req.user)
-
+  
   res.send(
-      !req.user ? '<a href="/login">Log In</a>' : '<a href="/logout">Log Out</a>' +
-          '<pre>' + JSON.stringify(req.user, null, 2) + '</pre>');
+      <h1>Hello World</h1>);
 }
 
 
