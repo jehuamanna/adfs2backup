@@ -17,6 +17,16 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 
+const oAuthHome = function (req, res) {
+  req.user = validateAccessToken(req.cookies['accessToken']);
+  console.log(req.user)
+
+  res.send(
+      !req.user ? '<a href="/login">Log In</a>' : '<a href="/logout">Log Out</a>' +
+          '<pre>' + JSON.stringify(req.user, null, 2) + '</pre>');
+}
+
+
 const oAuthAuth = (req, res) => {
   try {
     logger.info('Called health-check endpoint');
