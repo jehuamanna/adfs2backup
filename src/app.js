@@ -39,6 +39,7 @@ let authToken = {
 let token = ""
 
 var app = require('express')(),
+cookieParser = require('cookie-parser'),
     cors = require('cors'),
     passport = require('passport'),
     bodyParser = require('body-parser'),
