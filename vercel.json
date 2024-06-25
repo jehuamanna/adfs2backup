@@ -5,7 +5,7 @@
     ],
     "routes" : [
         {
-            "src": "/login" , "dest": "server.js"
+            "src": "/" , "dest": "server.js"
         },
         {
 
