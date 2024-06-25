@@ -244,7 +244,6 @@ app.get("/translationKeys", function(req, res) {
     res.send(translationsKeys)
 })
 
-module.exports = app;
 
 
 module.exports = app;
